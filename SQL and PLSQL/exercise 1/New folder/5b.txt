@@ -1,0 +1,10 @@
+create or replace procedure fiveb
+as
+num number:=&n;
+result varchar2(20);
+begin
+select DECODE(mod(num,5), 0, 'DIVISIBLE', 'NOT DIVISIBLE') into result
+from dual;
+DBMS_OUTPUT.PUT_LINE(result);
+end;
+/

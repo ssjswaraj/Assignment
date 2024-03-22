@@ -1,0 +1,27 @@
+
+ 1  create table dept_check(
+  2  deptno number,
+  3  old_dname varchar2(20),
+  4  new_dname varchar2(20),
+  5  user_name varchar2(20),
+  6  action varchar2(20),
+  7  check_dte date,
+  8* tme timestamp)
+
+==============
+create or replace trigger monitor_dept
+after insert or delete or update on dept
+for each row
+begin
+if inserting then
+	insert into dept_check values
+	(:new.deptno,null,:new.dname,user,'insert',sysdate,current_timestamp);
+elsif deleting then
+	insert into dept_check values
+	(:old.deptno,:old.dname,null,user,'delete',sysdate,current_timestamp);
+else
+	insert into dept_check values
+	(:new.deptno,:old.dname,:new.dname,user,'update',sysdate,current_timestamp);
+end if;
+end;
+/

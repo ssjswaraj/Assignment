@@ -1,0 +1,17 @@
+create or replace procedure pattern
+as
+i number;
+j number;
+k number;
+begin
+for i in 1..5
+k:=2*i-1
+loop
+	for j in 1..i
+	loop
+	DBMS_OUTPUT.PUT(j);
+	end loop;
+DBMS_OUTPUT.NEW_LINE;
+end loop;
+end;
+/

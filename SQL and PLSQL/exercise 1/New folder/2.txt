@@ -1,0 +1,15 @@
+create or replace procedure sqrt
+as
+num number;
+square number;
+cube number;
+begin
+	num:=5;
+	square:=num*num;
+        cube:=num*num*num;
+ drop table temp;
+ create table temp(numb number,square number,cube number);
+        insert into temp values(num,square,cube);
+       --select * from temp;
+end;
+/

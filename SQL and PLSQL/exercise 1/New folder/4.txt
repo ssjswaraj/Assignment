@@ -1,0 +1,15 @@
+create or replace procedure yards(n number)
+as
+yard number;
+foot number;
+inch number;
+temp number;
+begin
+	yard:=round(n/36);
+	temp:=mod(n,36);
+	foot:=round(temp/12);
+	temp:=mod(n,12);
+	DBMS_OUTPUT.PUT_LINE(n || 'inches :' );
+	DBMS_OUTPUT.PUT_LINE(yard || 'yards, '||foot || 'foots, '|| temp || 'inches' );
+end;
+/

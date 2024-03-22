@@ -1,0 +1,11 @@
+create or replace procedure divitest
+as
+num number:=&n;
+begin
+	if mod(num,5)=0 then
+	DBMS_OUTPUT.PUT_LINE('divisible');
+	else
+	DBMS_OUTPUT.PUT_LINE(' not divisible');
+end if;
+end;
+/
